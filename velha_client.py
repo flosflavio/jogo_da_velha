@@ -208,17 +208,22 @@ def GradeBinaria():
 def TraduzGrade(binaria):
     global grade
     i = 256
+    x= 2
+    y= 2
     
-    for x,linha in enumerate(grade):
-        for y,valor in enumerate(linha):
-            if binaria>=i:
-                binaria -= i
-                if valor==0:
-                    if escolhido==1:
-                        grade[x][y] =  2
-                    else:
-                        grade[x][y] =  1
-            i = i//2
+    while x>=0:
+        if binaria>=i:
+            binaria -= i
+            if grade[x][y]==0:
+                if escolhido==1:
+                    grade[x][y] =  2
+                else:
+                    grade[x][y] =  1
+        i = i//2    
+        y -= 1
+        if y<0:
+            x -= 1
+            y = 2
 
 def Main():
     global atual
